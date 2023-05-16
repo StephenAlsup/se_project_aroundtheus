@@ -17,13 +17,13 @@
     margin: 0;
   }
   
-  @media screen and (max-width: 880px) {
+  @media screen and (max-width: 900px) {
     .footer {
       max-width: 581px;
     }
   }
   
-  @media screen and (max-width: 596px) {
+  @media screen and (max-width: 580px) {
     .footer {
       max-width: 282px;
       padding-top: 48px;
