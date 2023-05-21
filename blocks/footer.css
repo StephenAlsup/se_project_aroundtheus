@@ -1,15 +1,10 @@
 .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: auto;
-    
     font-family: "Inter";
     font-weight: 400;
     font-size: 18px;
     line-height: 21.78px;
     color: #545454;
-    padding-top: 72px;
+    padding-top: 67px;
     padding-bottom: 60px;
   }
   
