@@ -11,12 +11,8 @@
     border-radius: 10px 10px 0 0;
   }
   
-  .card__description {
+  .card__title {
     display: flex;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 900;
-    line-height: 29px;
     background-color: white;
     border-radius: 0 0 10px 10px;
     padding-top: 25px;
@@ -24,13 +20,19 @@
     padding-left: 20px;
     padding-right: 20px;
     color: black;
-    overflow: hidden;
-    text-overflow: ellipsis;
     align-items: center;
     justify-content: space-between;
-
     
-
+  }
+  .card__description{
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .card__like-button {
     background: transparent url(../images/like-disabled.svg) center no-repeat;
@@ -44,4 +46,5 @@
   .card__like-button:hover {
     opacity: 50%;
     transition: 0.1s;
+    cursor: pointer;
   }
