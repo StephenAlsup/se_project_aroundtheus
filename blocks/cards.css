@@ -2,9 +2,7 @@
     display: flex;
     align-items: center;
     margin-top: 35px;
-    
-    
-  }
+    }
   
   .cards__list {
     display: grid;
