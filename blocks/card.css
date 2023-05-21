@@ -1,7 +1,8 @@
 .card {
-    border-radius: 20px;
+    
     display: flex;
     flex-direction: column;
+    list-style: none;
   }
   
   .card__image {
@@ -10,34 +11,34 @@
     border-radius: 10px 10px 0 0;
   }
   
-  .card__label {
+  .card__description {
     display: flex;
-    justify-content: space-between;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    line-height: 29px;
     background-color: white;
     border-radius: 0 0 10px 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 20px;
     padding-right: 20px;
-  }
-  
-  .card__label-title {
-    margin: 0 auto;
     color: black;
-    padding: 25px 69px 25px 20px;
-    font-size: 24px;
-    line-height: 29.05px;
-    font-weight: 900;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-items: center;
+    justify-content: space-between;
+
+    
+
   }
-  
   .card__like-button {
-    background-color: transparent;
-    align-self: center;
+    background: transparent url(../images/like-disabled.svg) center no-repeat;
     width: 21px;
     height: 18px;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
+    border: none;
+    
+    
   }
   
   .card__like-button:hover {

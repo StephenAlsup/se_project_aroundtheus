@@ -3,8 +3,8 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: auto;
-    max-width: 880px;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+    
+    font-family: "Inter";
     font-weight: 400;
     font-size: 18px;
     line-height: 21.78px;
@@ -13,23 +13,7 @@
     padding-bottom: 60px;
   }
   
-  .footer__copyright {
-    margin: 0;
-  }
   
-  @media screen and (max-width: 900px) {
-    .footer {
-      max-width: 581px;
-    }
-  }
   
-  @media screen and (max-width: 580px) {
-    .footer {
-      max-width: 282px;
-      padding-top: 48px;
-      padding-bottom: 36px;
-      font-size: 14px;
-      line-height: 17px;
-      text-align: left;
-    }
-  }
+  
+  
