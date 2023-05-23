@@ -29,5 +29,5 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Github**
 
-(stephenalsup.github.io)
+(https://stephenalsup.github.io/se_project_aroundtheus/)
 
