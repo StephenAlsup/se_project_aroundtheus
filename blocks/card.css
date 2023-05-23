@@ -1,50 +1,47 @@
 .card {
-    
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-  }
-  
-  .card__image {
-    width: 282px;
-    height: 282px;
-    border-radius: 10px 10px 0 0;
-  }
-  
-  .card__title {
-    display: flex;
-    background-color: white;
-    border-radius: 0 0 10px 10px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: black;
-    align-items: center;
-    justify-content: space-between;
-    
-  }
-  .card__description{
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .card__like-button {
-    background: transparent url(../images/like-disabled.svg) center no-repeat;
-    width: 21px;
-    height: 18px;
-    border: none;
-    
-    
-  }
-  
-  .card__like-button:hover {
-    opacity: 50%;
-    transition: 0.1s;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.card__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card__title {
+  display: flex;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: black;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__description {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+.card__like-button {
+  background: transparent url(../images/like-disabled.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+}
+
+.card__like-button:hover {
+  opacity: 50%;
+  transition: 0.1s;
+  cursor: pointer;
+}

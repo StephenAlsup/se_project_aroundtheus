@@ -1,26 +1,24 @@
 .footer {
-    font-family: "Inter";
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21.78px;
-    color: #545454;
-    padding-top: 67px;
-    padding-bottom: 60px;
-  }
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  color: #545454;
+  padding-top: 67px;
+  padding-bottom: 60px;
+  
+}
+.footer__name{
+  margin: 0;
+}
 
-  @media screen and (max-width: 480px) {
-    .footer{
-      width: 282px;
-      font-size: 14px;
-      line-height: 17px;
-      margin: 48px 19px 36px;
-      max-width: calc(100% - 40px);
-      
-    }
-    
+
+@media screen and (max-width: 480px) {
+  .footer {
+    width: 282px;
+    font-size: 14px;
+    line-height: 17px;
+    margin-left: 19px;
+    max-width: calc(100% - 40px);
   }
-  
-  
-  
-  
-  
+}

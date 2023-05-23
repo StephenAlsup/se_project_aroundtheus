@@ -1,19 +1,17 @@
 .cards {
-    display: flex;
-    align-items: center;
-    margin-top: 35px;
-    }
-  
-  .cards__list {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    grid-template-columns: repeat(auto-fit, 282px);
-    grid-gap: 20px 17px;
-    width: 100%;
-    justify-content: center;
-    white-space: nowrap;
-  }
-  
- 
+  display: flex;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.cards__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  width: 100%;
+  justify-content: center;
+  white-space: nowrap;
+}
