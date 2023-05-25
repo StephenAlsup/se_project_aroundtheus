@@ -63,6 +63,9 @@
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   margin-top: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__add-button {
@@ -100,9 +103,6 @@
     line-height: 26.7px;
     width: 196px;
     padding-top: 26px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .profile__subtitle {
     width: 100%;
