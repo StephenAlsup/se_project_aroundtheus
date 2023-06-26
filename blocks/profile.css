@@ -83,7 +83,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 596px) {
+@media screen and (max-width: 600px) {
   .profile {
     flex-direction: column;
   }
