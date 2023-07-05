@@ -67,4 +67,39 @@
     opacity: 0.8;
   }
 
+  @media screen and (max-width: 600px) {
+    .modal__container {
+      width: 282px;
+      height: 322px;
+      padding: 0px 19px;
+    }
+    .modal__close {
+      height: 26px;
+      width: 26px;
+      left: 250px;
+      bottom: calc(100% + 35px);
+      width: auto;
+      padding: 0 20;
+      margin-right: 40px;
+    }
+  
+    .modal__heading {
+      width: auto;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  
+    .modal__form {
+      width: 238px;
+    }
+  
+    .modal__form-item {
+      width: auto;
+    }
+  
+    .modal__button {
+      height: 46px;
+    }
+  }
+
 
