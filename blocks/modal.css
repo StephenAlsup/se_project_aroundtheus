@@ -18,7 +18,7 @@
   background-color: #fff;
   border-radius: 10px;
   margin: auto;
-  padding: 36px;
+  padding: 34px 36px 36px 36px;
   font-family: "Inter", Arial, sans-serif;
   display: grid;
   box-sizing: border-box;
@@ -60,6 +60,7 @@
 .modal__form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .modal__form-input {
@@ -71,6 +72,7 @@
   font-size: 14px;
   width: 100%;
   line-height: 17px;
+  box-sizing:border-box ;
 }
 
 .modal__button {
@@ -99,7 +101,7 @@
   .modal__container {
     max-width: 282px;
     min-height: 322px;
-    padding: 0px 19px;
+    padding: 25px 19px 25px 19px;
   }
 
   .modal__close {
@@ -110,17 +112,13 @@
   }
 
   .modal__heading {
-    width: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 18px;
     line-height: 22px;
   }
-
-  .modal__form {
-    width: 100%;
-  }
-
+   
   .modal__button {
     height: 46px;
     font-size: 14px;
