@@ -47,6 +47,7 @@
   align-self: center;
   border: 1px solid #ffffff;
   margin-left: 18px;
+  background-size: 10px;
 }
 
 .profile__edit-button:hover {
@@ -113,11 +114,13 @@
     margin: 0;
     max-width: 282px;
     width: 100%;
+    background-size: 16px;
     
   }
   .profile__edit-button {
     height: 18px;
     width: 18px;
     margin-top: 22px;
+    background-size: 10px;
   }
 }
