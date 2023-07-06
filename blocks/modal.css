@@ -114,7 +114,7 @@
   .modal__heading {
     width: 100%;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 30px;
     font-size: 18px;
     line-height: 22px;
   }
