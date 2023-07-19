@@ -30,33 +30,74 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileCloseBtn = document.querySelector("#profile-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector("#profile-description-input");
-const profileEditForm = document.querySelector(".modal__form");
+const profileTitleInput = document.querySelector("#profile-name-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
-const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const addCardButton = document.querySelector(".profile__add-button");
+const addCardModal = document.querySelector("#add-card-modal");
+const cardCloseBtn = document.querySelector("#card-modal-close");
+const cardAddForm = addCardModal.querySelector(".modal__form");
+const cardAddLink = document.querySelector("#card-url-input");
+const cardAddTitle = document.querySelector("#card-title-input");
+const cardAddTitleInput = document.querySelector("#cardAddTitleInput");
+const cardAddLinkInput = document.querySelector("#cardAddLinkInput");
+
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+}
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileDescriptionInput.value;
-  closePopup();
+  closeModal(profileEditModal);
 }
 
-function openPopup() {
+function openEditModalPopup() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileSubtitle.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openModal(profileEditModal)
 }
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+function openCardModalPopup() {
+  cardAddTitleInput.value = cardAddTitle.textContent;
+  cardAddLinkInput.value = cardAddLink.textContent;
+  openModal(addCardModal);
+}
+
+function handleCardAddFormSubmit(e) {
+  e.preventDefault();
+  const name = cardAddTitleInput.value;
+  const link = cardAddLinkInput;
+  renderCard({ name, link }, cardListEl);
+  closeModal(addCardModal);
+  cardAddForm.reset();
 }
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__description");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
+
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove("cardElement");
+  });
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.alt = cardData.name;
@@ -65,15 +106,17 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-profileEditBtn.addEventListener("click", () => {
-  openPopup();
-});
+profileEditBtn.addEventListener("click", () => openModal(profileEditModal));
 
-profileCloseBtn.addEventListener("click", () => {
-  closePopup();
-});
+profileCloseBtn.addEventListener("click", () => closeModal(profileEditModal));
+
+addCardButton.addEventListener("click", () => openModal(addCardModal));
+
+cardCloseBtn.addEventListener("click", () => closeModal(addCardModal));
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+cardAddForm.addEventListener("submit", handleCardAddFormSubmit);
+
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
