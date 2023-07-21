@@ -47,7 +47,10 @@ const cardAddLink = document.querySelector("#card-url-input");
 const cardAddTitle = document.querySelector("#card-title-input");
 const cardAddTitleInput = document.querySelector("#cardAddTitleInput");
 const cardAddLinkInput = document.querySelector("#cardAddLinkInput");
-
+const previewImageModal = document.querySelector("#preview-image");
+const modalImage = document.querySelector(".modal__image");
+const modalText = document.querySelector(".modal__preview-title");
+const previewCloseBtn = document.querySelector("#preview-image-close");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -66,7 +69,7 @@ function handleProfileEditSubmit(e) {
 function openEditModalPopup() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileSubtitle.textContent;
-  openModal(profileEditModal)
+  openModal(profileEditModal);
 }
 
 function openCardModalPopup() {
@@ -77,11 +80,11 @@ function openCardModalPopup() {
 
 function handleCardAddFormSubmit(e) {
   e.preventDefault();
-  const name = cardAddTitleInput.value;
-  const link = cardAddLinkInput;
-  renderCard({ name, link }, cardListEl);
+  cardListEl.prepend(getCardElement({
+    name: cardAddTitle.value,
+    link: cardAddLink.value
+  }))
   closeModal(addCardModal);
-  cardAddForm.reset();
 }
 
 function getCardElement(cardData) {
@@ -99,6 +102,13 @@ function getCardElement(cardData) {
     cardElement.remove("cardElement");
   });
 
+  cardImageEl.addEventListener("click", () => {
+    modalImage.src = cardData.link;
+    modalImage.alt = cardData.name;
+    modalText.textContent = cardData.name;
+    openModal(previewImageModal);
+  });
+
   cardTitleEl.textContent = cardData.name;
   cardImageEl.alt = cardData.name;
   cardImageEl.src = cardData.link;
@@ -114,9 +124,10 @@ addCardButton.addEventListener("click", () => openModal(addCardModal));
 
 cardCloseBtn.addEventListener("click", () => closeModal(addCardModal));
 
+previewCloseBtn.addEventListener("click", () => closeModal(previewImageModal));
+
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleCardAddFormSubmit);
-
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
