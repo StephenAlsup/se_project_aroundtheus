@@ -80,10 +80,10 @@ function openCardModalPopup() {
 
 function handleCardAddFormSubmit(e) {
   e.preventDefault();
-  cardListEl.prepend(getCardElement({
-    name: cardAddTitle.value,
-    link: cardAddLink.value
-  }))
+  const name = cardTitleInput.value;
+  const link = cardLinkInput.value;
+  const cardElement = getCardElement({ name, link });
+  cardListEl.prepend(cardElement);
   closeModal(addCardModal);
 }
 
