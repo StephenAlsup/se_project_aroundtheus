@@ -108,6 +108,19 @@
   
 }
 
+.modal__image-container {
+  margin: auto;
+  position: relative;
+}
+
+.modal__preview-title {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  
+
+}
+
 @media screen and (max-width: 600px) {
   .modal__container {
     max-width: 282px;
