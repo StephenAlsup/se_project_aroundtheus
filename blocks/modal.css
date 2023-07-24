@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  opacity: 0;
 }
 
 .modal_opened {
@@ -105,7 +106,6 @@
 .modal__image {
   max-width: 75vw;
   max-height: 75vh;
-  
 }
 
 .modal__image-container {
@@ -117,8 +117,6 @@
   font-size: 12px;
   font-weight: 400;
   font-family: "Inter", sans-serif;
-  
-
 }
 
 @media screen and (max-width: 600px) {
