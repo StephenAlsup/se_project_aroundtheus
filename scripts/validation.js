@@ -30,6 +30,7 @@ function enableValidation(options) {
 }
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+    const hasInvalidInput = false;
     if (hasInvalidInput(inputEls)) {
       submitButton.classList.add(inactiveButtonClass);
       submitButton.disabled = true;
