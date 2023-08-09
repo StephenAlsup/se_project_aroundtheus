@@ -123,20 +123,12 @@
 }
 
 .modal__error {
+  font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
-  line-height: 15px;
-  color: #ff0000;
-  transition: opacity 0.3s;
-  width: 358px;
-  position: absolute;
-  font-family: "Inter", sans-serif;
   font-weight: 400;
-  left: 0;
-  top: calc(100% + 5px);
-}
-
-.modal__input_type_error {
-  border-bottom: 1px solid #ff0000;
+  color: #f00;
+  margin-bottom: 13px;
+  opacity: 0;
 }
 
 .modal__error_visible {
