@@ -121,10 +121,6 @@ addCardButton.addEventListener("click", () => {
   cardAddLinkInput.value = cardAddLink.textContent;
 });
 
-cardCloseBtn.addEventListener("click", () => closeModal(addCardModal));
-
-previewCloseBtn.addEventListener("click", () => closeModal(previewImageModal));
-
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 cardAddForm.addEventListener("submit", handleCardAddFormSubmit);
 
