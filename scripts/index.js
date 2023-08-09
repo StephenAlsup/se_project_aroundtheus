@@ -129,3 +129,21 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
 });
+
+function closeEscape(evt) {
+  const modal = document.querySelector('.modal_opened');
+  if (evt.key === "Escape") {
+    closeModal(modal);
+  }
+}
+
+[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (
+      event.target.classList.contains("modal") ||
+      event.target.classList.contains("modal__close")
+    ) {
+      closeModal(modal);
+    }
+  });
+});
