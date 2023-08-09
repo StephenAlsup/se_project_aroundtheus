@@ -56,7 +56,7 @@
         <form class="modal__form" name="Popup">
           <input
             name="Name"
-            class="modal__form-input"
+            class="modal__input"
             id="profile-name-input"
             type="text"
             placeholder="Name"
@@ -66,7 +66,7 @@
           />
           <input
             name="description"
-            class="modal__form-input"
+            class="modal__input"
             id="profile-description-input"
             type="text"
             placeholder="About Me"
@@ -74,6 +74,7 @@
             maxlength="200"
             required
           />
+          <span class="modal__error" id="modal-input-error">Please fill out this field </span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
@@ -89,7 +90,7 @@
           <form class="modal__form" name="Popup" id="add-card-form">
             <input
               name="title"
-              class="modal__form-input"
+              class="modal__input"
               id="card-title-input"
               type="text"
               placeholder="Title"
@@ -99,12 +100,13 @@
             />
             <input
               name="url"
-              class="modal__form-input"
+              class="modal__input"
               id="card-url-input"
               type="text"
               placeholder="Image URL"
               required
             />
+            <span class="modal__error" id="modal-url-error">Please fill out this field</span>
             <button class="modal__button" type="submit">Save</button>
           </form>
         </div>

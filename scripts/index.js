@@ -54,9 +54,12 @@ const previewCloseBtn = document.querySelector("#preview-image-close");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keyup", handleEscape);
 }
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keyup", handleEscape);
 }
 
 function handleProfileEditSubmit(e) {
@@ -130,10 +133,11 @@ initialCards.forEach((cardData) => {
   cardListEl.append(cardElement);
 });
 
-function closeEscape(evt) {
-  const modal = document.querySelector('.modal_opened');
-  if (evt.key === "Escape") {
-    closeModal(modal);
+function handleEscape({ key }) {
+  if (key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    closeModal(openModal);
+    console.log("clicked");
   }
 }
 
