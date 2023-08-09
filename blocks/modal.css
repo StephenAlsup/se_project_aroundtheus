@@ -103,6 +103,34 @@
   opacity: 0.8;
 }
 
+.modal__button_disabled {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+
+.modal__button_disabled:hover {
+  opacity: 1;
+}
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  transition: opacity 0.3s;
+  width: 358px;
+  position: absolute;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  left: 0;
+  top: calc(100% + 5px);
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
+
 .modal__image {
   max-width: 75vw;
   max-height: 75vh;
