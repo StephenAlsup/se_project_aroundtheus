@@ -115,8 +115,6 @@ profileEditBtn.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
-  cardAddTitleInput.value = cardAddTitle.textContent;
-  cardAddLinkInput.value = cardAddLink.textContent;
   cardAddForm.reset()
 });
 
