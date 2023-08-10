@@ -113,8 +113,6 @@ profileEditBtn.addEventListener("click", () => {
   profileDescriptionInput.value = profileSubtitle.textContent;
 });
 
-profileCloseBtn.addEventListener("click", () => closeModal(profileEditModal));
-
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
   cardAddTitleInput.value = cardAddTitle.textContent;
