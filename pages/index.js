@@ -105,6 +105,8 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
+
+  editFormValidator.toggleButtonState();
 }
 
 function handleCardAddFormSubmit(e) {
@@ -114,6 +116,8 @@ function handleCardAddFormSubmit(e) {
   const cardElement = getCardElement({ name, link });
   cardListEl.prepend(cardElement);
   closeModal(addCardModal);
+
+  addFormValidator.toggleButtonState();
 }
 
 function getCardElement(cardData) {
@@ -162,4 +166,15 @@ cardAddForm.addEventListener("submit", handleCardAddFormSubmit);
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
+});
+
+[profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (
+      event.target.classList.contains("modal") ||
+      event.target.classList.contains("modal__close")
+    ) {
+      closeModal(modal);
+    }
+  });
 });
