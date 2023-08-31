@@ -32,9 +32,10 @@
             ></button>
             <p class="profile__subtitle">Explorer</p>
           </div>
-          <button type="button" 
-          class="profile__add-button" 
-          id="profile-add-button"
+          <button
+            type="button"
+            class="profile__add-button"
+            id="profile-add-button"
           ></button>
         </section>
         <section class="cards page__section">
@@ -75,51 +76,61 @@
             maxlength="200"
             required
           />
-          <span class="modal__error" id="profile-description-input-error"></span>
+          <span
+            class="modal__error"
+            id="profile-description-input-error"
+          ></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
-      </div>
-      <div class="modal" id="add-card-modal">
-        <div class="modal__container">
+    </div>
+    <div class="modal" id="add-card-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          type="button"
+          id="card-modal-close"
+        ></button>
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" name="Popup" id="add-card-form">
+          <input
+            name="title"
+            class="modal__input"
+            id="card-title-input"
+            type="text"
+            placeholder="Title"
+            minlength="1"
+            maxlength="30"
+            required
+          />
+          <span class="modal__error" id="card-title-input-error"></span>
+          <input
+            name="url"
+            class="modal__input"
+            id="card-url-input"
+            type="url"
+            placeholder="Image URL"
+            required
+          />
+          <span class="modal__error" id="card-url-input-error"></span>
           <button
-            class="modal__close"
-            type="button"
-            id="card-modal-close"
-          ></button>
-          <h2 class="modal__heading">New Place</h2>
-          <form class="modal__form" name="Popup" id="add-card-form">
-            <input
-              name="title"
-              class="modal__input"
-              id="card-title-input"
-              type="text"
-              placeholder="Title"
-              minlength="1"
-              maxlength="30"
-              required
-            />
-            <span class="modal__error" id="card-title-input-error"></span>
-            <input
-              name="url"
-              class="modal__input"
-              id="card-url-input"
-              type="url"
-              placeholder="Image URL"
-              required
-            />
-            <span class="modal__error" id="card-url-input-error"></span>
-            <button class="modal__button modal__button_disabled" type="submit" disabled>Save</button>
-          </form>
-        </div>
+            class="modal__button modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
     </div>
     <div class="modal" id="preview-image">
       <div class="modal__image-container">
-        <button class="modal__close modal__close_type_preview"
-        id="preview-image-close"
-        type="button"
+        <button
+          class="modal__close modal__close_type_preview"
+          id="preview-image-close"
+          type="button"
         ></button>
-        <img class="modal__image" alt="Preview" src="#"/>
+        <img class="modal__image" alt="Preview" src="#" />
         <h5 class="modal__preview-title"></h5>
       </div>
     </div>
@@ -130,10 +141,9 @@
         <div class="card__title">
           <h2 class="card__description"></h2>
           <button class="card__like-button" type="button"></button>
-          </div>
-        </li>
+        </div>
+      </li>
     </template>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validation.js"></script>
+    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>
