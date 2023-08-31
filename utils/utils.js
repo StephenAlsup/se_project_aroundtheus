@@ -1,11 +1,11 @@
 export function openModal(modal) {
     modal.classList.add("modal_opened");
-    document.addEventListener("keyup", handleEscUp);
+    document.addEventListener("keyup", handleEscape);
   }
   
   export function closeModal(modal) {
     modal.classList.remove("modal_opened");
-    document.removeEventListener("keyup", handleEscUp);
+    document.removeEventListener("keyup", handleEscape);
   }
   
   export function handleEscape({ key }) {

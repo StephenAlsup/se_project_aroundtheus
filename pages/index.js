@@ -66,20 +66,29 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const cardSelector = "#card-template";
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
 
-const editFormValidator = new FormValidator(settings, profileEditForm);
-const addFormValidator = new FormValidator(settings, cardAddForm);
+const cardTemp = document
+  .querySelector("#card-template")
+  .content.querySelector(".cards");
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+  const cardSelector = "#card-template";
 
-function renderCard(cardData, wrapper) {
-  const card = new Card(cardData, '#card-template');
-  const cardElement= card.getView();
-  wrapper.prepend(cardElement);
-}
 
+  const editFormElement = profileEditModal.querySelector(".modal__form");
+  const addFormElement = addCardModal.querySelector(".modal__form");
+  
+  const editFormValidator = new FormValidator(settings, editFormElement);
+  const addFormValidator = new FormValidator(settings, addFormElement);
+
+  function renderCard(cardData, wrapper) {
+    const card = new Card(cardData, cardSelector);
+    wrapper.prepend(card.getView());
+  }
+  
 
 //function closeModal(modal) {
   //modal.classList.remove("modal_opened");
@@ -122,19 +131,19 @@ function getCardElement(cardData) {
     cardElement.remove("cardElement");
   });
 
-  //cardImageEl.addEventListener("click", () => {
-    //modalImage.src = cardData.link;
-    //modalImage.alt = cardData.name;
-   // modalText.textContent = cardData.name;
-    //openModal(previewImageModal);
-  //});
+  cardImageEl.addEventListener("click", () => {
+    modalImage.src = cardData.link;
+    modalImage.alt = cardData.name;
+   modalText.textContent = cardData.name;
+    openModal(previewImageModal);
+  });
 
-  //cardTitleEl.textContent = cardData.name;
-  //cardImageEl.alt = cardData.name;
-  //cardImageEl.src = cardData.link;
+  cardTitleEl.textContent = cardData.name;
+  cardImageEl.alt = cardData.name;
+  cardImageEl.src = cardData.link;
 
-  //return cardElement;
-//}
+  return cardElement;
+}
 
 profileEditBtn.addEventListener("click", () => {
   openModal(profileEditModal);
@@ -154,4 +163,3 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.append(cardElement);
 });
-}
