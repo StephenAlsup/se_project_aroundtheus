@@ -113,11 +113,11 @@ function handleCardAddFormSubmit(e) {
   e.preventDefault();
   const name = cardAddTitleInput.value;
   const link = cardAddLinkInput.value;
-  const cardElement = getCardElement({ name, link });
+  renderCard({ name, link }, cardsWrap);
   cardListEl.prepend(cardElement);
   closeModal(addCardModal);
 
-  addFormValidator.toggleButtonState();
+  addFormValidator._toggleButtonState();
 }
 
 function getCardElement(cardData) {
