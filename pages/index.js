@@ -65,11 +65,6 @@ const settings = {
   errorClass: ".modal__error_visible",
 };
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
 const cardTemp = document
   .querySelector("#card-template")
   .content.querySelector(".cards");
@@ -111,8 +106,10 @@ function handleProfileEditSubmit(e) {
 
 function handleCardAddFormSubmit(e) {
   e.preventDefault();
-  const name = cardAddTitleInput.value;
-  const link = cardAddLinkInput.value;
+  const cardData = {
+    name: cardAddTitleInput.value,
+    link: cardAddLinkInput.value,
+  };
   renderCard(cardData, cardList);
   closeModal(addCardModal);
 
@@ -169,7 +166,7 @@ cardAddForm.addEventListener("submit", handleCardAddFormSubmit);
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
-  cardList.append(cardElement);
+  cardListEl.append(cardElement);
 });
 
 [profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
