@@ -40,7 +40,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardList = document.querySelector(".cards__list");
+const cardListEl = document.querySelector(".cards__list");
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -48,8 +48,8 @@ const addCardButton = document.querySelector(".profile__add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 //const cardCloseBtn = document.querySelector("#card-modal-close");
 const cardAddForm = addCardModal.querySelector(".modal__form");
-//const cardAddLink = document.querySelector("#card-url-input");
-//const cardAddTitle = document.querySelector("#card-title-input");
+const cardAddLink = document.querySelector("#card-url-input");
+const cardAddTitle = document.querySelector("#card-title-input");
 const cardAddTitleInput = document.querySelector("#card-title-input");
 const cardAddLinkInput = document.querySelector("#card-url-input");
 const previewImageModal = document.querySelector("#preview-image");
@@ -60,9 +60,14 @@ const modalText = document.querySelector(".modal__preview-title");
 const settings = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
-  inactiveButtonClass: ".modal__button_disabled",
-  inputErrorClass: ".modal__error",
-  errorClass: ".modal__error_visible",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__error",
+  errorClass: "modal__error_visible",
+};
+
+const cardData = {
+  name:  cardAddTitle.value,
+  link: cardAddLink.value,
 };
 
 const cardTemp = document
@@ -71,7 +76,10 @@ const cardTemp = document
 
   const cardSelector = "#card-template";
 
-
+  function createCard(cardData, cardList) {
+    const cardElement = new Card(cardData, cardList);
+    return cardElement.getView();
+  }
   
   
   const editFormValidator = new FormValidator(settings, profileEditForm);
@@ -79,9 +87,9 @@ const cardTemp = document
   editFormValidator.enableValidation();
   addFormValidator.enableValidation();
 
-  function renderCard(cardData, cardList) {
-    const cardElement = createCard(cardData, "#card-template");
-    cardList.prepend(cardElement);
+  function renderCard(cardData, wrapper) {
+    const card = new Card(cardData, cardSelector);
+    wrapper.prepend(card.getView());
   }
   
 
@@ -106,19 +114,12 @@ function handleProfileEditSubmit(e) {
 
 function handleCardAddFormSubmit(e) {
   e.preventDefault();
-  const cardData = {
-    name: cardAddTitleInput.value,
-    link: cardAddLinkInput.value,
-  };
-  renderCard(cardData, cardList);
+  const name = cardAddTitleInput.value;
+  const link = cardAddLinkInput.value;
+  renderCard(cardData, cardListEl);
   closeModal(addCardModal);
 
   cardAddForm.reset();
-}
-
-function createCard(cardData, cardList) {
-  const cardElement = new Card(cardData, cardList);
-  return cardElement.getView();
 }
 
 function getCardElement(cardData) {
