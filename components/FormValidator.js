@@ -34,7 +34,7 @@ class FormValidator {
 }
 
   _hasInvalidInput() {
-    return this._inputEls.every((inputEl) => !inputEl.validity.valid);
+    return this._inputEls.some((inputEl) => !inputEl.validity.valid);
   }
 
 
@@ -53,9 +53,6 @@ class FormValidator {
     
 
   _setEventListeners() {
-    this._submitButton = this._formEl.querySelector(this._submitButtonSelector);
-    this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
-  
     this.toggleButtonState();
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (e) => {

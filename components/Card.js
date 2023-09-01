@@ -54,13 +54,18 @@ class Card {
   
       this._cardImage = this._cardElement.querySelector(".card__image");
   
-      this._cardTitle = this._cardElement.querySelector(".card__title");
+      this._cardTitle = this._cardElement.querySelector(".card__description");
+
+      this._setEventListeners();
+
+      this._cardImage.src = this._link;
+  
+      this._cardImage.alt = this._name;
+  
+      this._cardTitle.textContent = this._name;
   
 
-    this._cardElement.querySelector(".card__title").innerText = this._name;
-    this._cardElement.querySelector(".card__image").src = this._link;
-    this._cardElement.querySelector(".card__image").alt = this._name;
-    this._setEventListeners();
+    this._cardElement.querySelector(".card__description").innerText = this._name;
     return this._cardElement;
   }
 }
