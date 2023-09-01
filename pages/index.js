@@ -81,8 +81,8 @@ initialCards.forEach((cardData) => {
 
   //const cardSelector = "#card-template";
 
-  function createCard(cardData, cardsListEl) {
-    const cardElement = new Card(cardData, cardsListEl);
+  function createCard(cardData, cardSelector) {
+    const cardElement = new Card(cardData, cardSelector);
     return cardElement.getView();
   }
   
