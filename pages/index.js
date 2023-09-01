@@ -40,7 +40,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".cards__list");
+const cardList = document.querySelector(".cards__list");
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -58,12 +58,11 @@ const modalText = document.querySelector(".modal__preview-title");
 //const previewCloseBtn = document.querySelector("#preview-image-close");
 
 const settings = {
-  
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__error",
-  errorClass: "modal__error_visible",
+  inactiveButtonClass: ".modal__button_disabled",
+  inputErrorClass: ".modal__error",
+  errorClass: ".modal__error_visible",
 };
 
 const cardData = {
@@ -78,15 +77,16 @@ const cardTemp = document
   const cardSelector = "#card-template";
 
 
-  const editFormElement = profileEditModal.querySelector(".modal__form");
-  const addFormElement = addCardModal.querySelector(".modal__form");
   
-  const editFormValidator = new FormValidator(settings, editFormElement);
-  const addFormValidator = new FormValidator(settings, addFormElement);
+  
+  const editFormValidator = new FormValidator(settings, profileEditForm);
+  const addFormValidator = new FormValidator(settings, cardAddForm);
+  editFormValidator.enableValidation();
+  addFormValidator.enableValidation();
 
-  function renderCard(cardData, wrapper) {
-    const card = new Card(cardData, cardSelector);
-    wrapper.prepend(card.getView());
+  function renderCard(cardData, cardList) {
+    const cardElement = createCard(cardData, "#card-template");
+    cardList.prepend(cardElement);
   }
   
 
@@ -113,11 +113,15 @@ function handleCardAddFormSubmit(e) {
   e.preventDefault();
   const name = cardAddTitleInput.value;
   const link = cardAddLinkInput.value;
-  renderCard({ name, link }, cardsWrap);
-  cardListEl.prepend(cardElement);
+  renderCard(cardData, cardList);
   closeModal(addCardModal);
 
-  addFormValidator._toggleButtonState();
+  cardAddForm.reset();
+}
+
+function createCard(cardData, cardList) {
+  const cardElement = new Card(cardData, cardList);
+  return cardElement.getView();
 }
 
 function getCardElement(cardData) {
@@ -165,7 +169,7 @@ cardAddForm.addEventListener("submit", handleCardAddFormSubmit);
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
-  cardListEl.append(cardElement);
+  cardList.append(cardElement);
 });
 
 [profileEditModal, addCardModal, previewImageModal].forEach((modal) => {
