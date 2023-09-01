@@ -76,8 +76,8 @@ const cardTemp = document
 
   const cardSelector = "#card-template";
 
-  function createCard(cardData, cardList) {
-    const cardElement = new Card(cardData, cardList);
+  function createCard(cardData, cardsListEl) {
+    const cardElement = new Card(cardData, cardsListEl);
     return cardElement.getView();
   }
   
@@ -87,9 +87,9 @@ const cardTemp = document
   editFormValidator.enableValidation();
   addFormValidator.enableValidation();
 
-  function renderCard(cardData, wrapper) {
+  function renderCard(cardData, cardsListEl) {
     const card = new Card(cardData, cardSelector);
-    wrapper.prepend(card.getView());
+    cardsListEl.prepend(card.getView());
   }
   
 
@@ -114,8 +114,11 @@ function handleProfileEditSubmit(e) {
 
 function handleCardAddFormSubmit(e) {
   e.preventDefault();
-  const name = cardAddTitleInput.value;
-  const link = cardAddLinkInput.value;
+ const cardData = {
+  name: cardAddTitleInput.value,
+  link: cardAddLinkInput.value,
+ }
+ 
   renderCard(cardData, cardListEl);
   closeModal(addCardModal);
 
