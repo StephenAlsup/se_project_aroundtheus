@@ -110,6 +110,7 @@ function handleCardAddFormSubmit(e) {
   renderCard(cardData, cardListEl);
   closeModal(addCardModal);
 
+  cardAddForm.reset()
   addFormValidator.toggleButtonState();
 }
 
@@ -121,7 +122,6 @@ profileEditBtn.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
  openModal(addCardModal);
- cardAddForm.reset()
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
