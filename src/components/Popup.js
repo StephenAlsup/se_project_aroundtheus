@@ -3,6 +3,7 @@ export default class Popup {
     this._popupElement = document.querySelector(popupSelector);
     this._handleEscape = this._handleEscape;
   }
+  
   open() {
     this._popupElement.classList.add("modal_opened");
     document.addEventListener("keyup", this._handleEscape);

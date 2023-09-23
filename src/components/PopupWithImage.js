@@ -3,8 +3,8 @@ import PopUp from "./Popup.js";
 export default class PopUpWithImage extends PopUp {
   constructor(popUpSelector) {
     super(popUpSelector);
-    this._image = this._popupElement.querySelector(".modal__image");
-    this._caption = this._popupElement.querySelector(".modal__preview-title"); 
+    this._cardImage = this._popupElement.querySelector("#preview-image");
+    this._cardTitle = this._popupElement.querySelector(".modal__preview-title"); 
   }
   
 setEventListeners(){
@@ -13,9 +13,9 @@ setEventListeners(){
   open(data) {
     super.open();
     if (data) {
-      this._image.src = data.link; 
-      this._image.alt = data.name;  
-      this._caption.textContent = data.name; 
+      this._cardImage.src = data.link; 
+      this._cardImage.alt = data.name;  
+      this._cardTitle.textContent = data.name; 
     }
   }
   close() {
