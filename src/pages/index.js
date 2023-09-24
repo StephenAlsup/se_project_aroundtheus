@@ -35,7 +35,7 @@ export const initialCards = [
 
 const profileEditBtn = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileEditForm = document.querySelector(".modal__form");
+const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileCloseBtn = document.querySelector("#profile-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
@@ -50,7 +50,7 @@ const cardListEl = document.querySelector(".cards__list");
 const addCardButton = document.querySelector(".profile__add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const cardCloseBtn = document.querySelector("#card-modal-close");
-const cardAddForm = document.querySelector(".modal__form");
+const cardAddForm = addCardModal.querySelector(".modal__form");
 const cardAddLink = document.querySelector("#card-url-input");
 const cardAddTitle = document.querySelector("#card-title-input");
 const cardAddTitleInput = document.querySelector("#card-title-input");
@@ -114,8 +114,8 @@ function handleCardAddFormSubmit() {
   const link = cardAddLinkInput.value;
   renderCard({ name, link }, cardListEl);
   //addCardForm.close();
-  //addCardForm.reset(); 
- addFormValidator.toggleButtonState();
+  //addCardForm.reset();
+   addFormValidator.toggleButtonState();
 }
 
 function profileFormInfo() {
@@ -124,14 +124,12 @@ function profileFormInfo() {
   profileDescriptionInput.value = userInfoData.job;
 }
 
-//function fillProfile() {
-  //profileFormInfo();
-  //profileForm.open();
-//}
-
-profileEditBtn.addEventListener("click", () => {
+function fillProfile() {
+  profileFormInfo();
   profileForm.open();
-});
+}
+
+profileEditBtn.addEventListener("click", fillProfile); 
 
 const profileForm = new PopupWithForm(
   "#profile-edit-modal",
