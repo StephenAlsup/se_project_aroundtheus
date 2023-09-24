@@ -1,14 +1,11 @@
 //import { openModal, closeModal, handleEscape } from "../utils/utils.js";
 
-
-
 export default class Card {
-  constructor({ name, link }, cardSelector, handlePreviewPicture) {
+  constructor({ name, link }, cardSelector, handlePreviewImage) {
     this._name = name;
     this._link = link;
-
     this._cardSelector = cardSelector;
-    this._handlePreviewPicture = handlePreviewPicture;
+    this._handlePreviewImage = handlePreviewImage;
   }
 
   _setEventListeners() {
@@ -27,11 +24,8 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handlePreviewPicture(this.getCardData());
+        this._handlePreviewImage(this._name, this._link);
       });
-  }
-  getCardData() {
-    return { name: this._name, link: this._link };
   }
 
   _handleDeleteCard() {
@@ -50,21 +44,13 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-  }
-
-  getView() {
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-
-    this._setEventListeners();
 
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__image").alt = this._name;
     this._cardElement.querySelector(".card__description").textContent =
       this._name;
 
+    this._setEventListeners();
     return this._cardElement;
   }
 }
