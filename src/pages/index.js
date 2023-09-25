@@ -43,6 +43,8 @@ const profileTitleInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+//const userInfoProfileTitle = document.querySelector("#profile-name-input");
+//const userInfoProfileDescriptionInput = document.querySelector("#profile-description-input");
 
 const cardListEl = document.querySelector(".cards__list");
 //const cardTemplate =
@@ -75,19 +77,25 @@ const settings = {
 //return cardElement.getView();
 
 //}
-function profileFormInfo() {
+function fillProfileForm() {
   const userData = userInfo.getUserInfo();
-  profileTitleInput.value = userData.title;
+  profileTitleInput.value = userData.name;
   profileDescriptionInput.value = userData.description;
 }
 
 const userInfo = new UserInfo(profileTitle, profileSubtitle);
 
 function handleProfileEditSubmit(formData) {
-  userInfo.setUserInfo(formData.title, formData.description);
+  userInfo.setUserInfo(formData.name, formData.description);
   profileForm.close();
   editFormValidator.toggleButtonState();
 }
+
+const handleEditClick = () => {
+  fillProfileForm();
+  profileForm.open();
+}
+profileEditBtn.addEventListener("click", handleEditClick);
 
 const renderCard = (cardData) => {
   const newCard = new Card(cardData, "#card-template", handlePreviewImage);
@@ -126,17 +134,14 @@ function handleCardAddFormSubmit() {
   addFormValidator.toggleButtonState();
 }
 
-function fillProfile() {
-  profileFormInfo();
-  profileForm.open();
-}
 
-profileEditBtn.addEventListener("click", fillProfile);
+
+
 
 const profileForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit,
-  profileFormInfo(),
+  //profileFormInfo(),
   editFormValidator.enableValidation()
 );
 
@@ -153,3 +158,5 @@ popupWithImage.setEventListeners();
 function handlePreviewImage(name, link) {
   popupWithImage.open(name, link);
 }
+
+
