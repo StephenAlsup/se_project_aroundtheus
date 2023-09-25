@@ -39,7 +39,6 @@ const userInfo = new UserInfo(profileTitle, profileSubtitle);
 function handleProfileEditSubmit(formData) {
   userInfo.setUserInfo(formData.name, formData.description);
   profileForm.close();
-  editFormValidator.enableValidation();
 }
 
 const handleEditClick = () => {
