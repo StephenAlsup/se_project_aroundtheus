@@ -70,9 +70,23 @@ const settings = {
 };
 //addCardForm.setEventListeners();
 
-function createCard(data) {
-  const cardElement = new Card(data, "#card-template", handlePreviewImage);
-  return cardElement.getView();
+//function createCard(data) {
+//const cardElement = new Card(data, "#card-template", handlePreviewImage);
+//return cardElement.getView();
+
+//}
+function profileFormInfo() {
+  const userData = userInfo.getUserInfo();
+  profileTitleInput.value = userData.title;
+  profileDescriptionInput.value = userData.description;
+}
+
+const userInfo = new UserInfo(profileTitle, profileSubtitle);
+
+function handleProfileEditSubmit(formData) {
+  userInfo.setUserInfo(formData.title, formData.description);
+  profileForm.close();
+  editFormValidator.toggleButtonState();
 }
 
 const renderCard = (cardData) => {
@@ -96,18 +110,12 @@ const addCardForm = new PopupWithForm(
 );
 addCardForm.setEventListeners();
 
-const userInfo = new UserInfo(profileTitle, profileSubtitle);
+//const userInfo = new UserInfo(profileTitle, profileSubtitle);
 
 const editFormValidator = new FormValidator(settings, profileEditForm);
 const addFormValidator = new FormValidator(settings, cardAddForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-function handleProfileEditSubmit(data) {
-  userInfo.setUserInfo(data.name, data.description);
-  profileForm.close();
- editFormValidator.toggleButtonState();
-}
 
 function handleCardAddFormSubmit() {
   const name = cardAddTitleInput.value;
@@ -115,13 +123,7 @@ function handleCardAddFormSubmit() {
   renderCard({ name, link }, cardListEl);
   //addCardForm.close();
   //addCardForm.reset();
-   addFormValidator.toggleButtonState();
-}
-
-function profileFormInfo() {
-  const userInfoData = userInfo.getUserInfo();
-  profileTitleInput.value = userInfoData.name;
-  profileDescriptionInput.value = userInfoData.job;
+  addFormValidator.toggleButtonState();
 }
 
 function fillProfile() {
@@ -129,13 +131,13 @@ function fillProfile() {
   profileForm.open();
 }
 
-profileEditBtn.addEventListener("click", fillProfile); 
+profileEditBtn.addEventListener("click", fillProfile);
 
 const profileForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit,
   profileFormInfo(),
-  editFormValidator.enableValidation(),
+  editFormValidator.enableValidation()
 );
 
 profileForm.setEventListeners();
