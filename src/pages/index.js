@@ -80,8 +80,6 @@ function handleCardAddFormSubmit({ title, url }) {
     link: url,
   };
   renderCard(cardData);
-
-  addFormValidator.enableValidation();
 }
 
 const profileForm = new PopupWithForm(
