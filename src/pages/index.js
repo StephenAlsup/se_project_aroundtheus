@@ -7,6 +7,12 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, selectors } from "../utils/constants.js";
 import { settings } from "../utils/constants.js";
+import Api from "../components/Api.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  authToken: "05a84fe0-5476-4d0c-829d-6905cc00fe2d",
+});
 
 const profileEditBtn = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
