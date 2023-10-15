@@ -15,6 +15,36 @@
   margin-right: 24px;
 }
 
+.profile__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.profile__avatar-button {
+  position: absolute;
+  margin-right: 28px;
+  margin-bottom: 10px;
+  margin-left: 4px;
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.8) url(../images/edit-avatar.svg) no-repeat
+    center;
+  background-size: 26px;
+  transition: all 0.3s;
+  opacity: 0;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+}
+
+.profile__avatar-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .profile__info {
   margin-left: 19px;
   margin-right: 19px;

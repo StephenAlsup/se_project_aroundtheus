@@ -8,6 +8,7 @@ import UserInfo from "../components/UserInfo.js";
 import { initialCards, selectors } from "../utils/constants.js";
 import { settings } from "../utils/constants.js";
 import Api from "../components/Api.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",

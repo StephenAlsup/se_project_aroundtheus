@@ -34,6 +34,10 @@
   width: 100%;
 }
 
+.modal__container_confirm {
+  max-height: 181px;
+}
+
 .modal__close {
   background-image: url(../images/closeicon.svg);
   border: none;
