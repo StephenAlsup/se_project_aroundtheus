@@ -12,7 +12,7 @@ import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  authToken: "05a84fe0-5476-4d0c-829d-6905cc00fe2d",
+  authToken: "0b288917-ab08-48b1-b87e-440bc0c9842c",
 });
 
 const profileEditBtn = document.querySelector("#profile-edit-button");
