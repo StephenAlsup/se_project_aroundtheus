@@ -17,19 +17,19 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="jacques-cousteau"
+          <div class = "profile__avatar">
+            <img class="profile__image"
+            src=""
+            alt="avatar"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               type="button"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
-            <p class="profile__subtitle">Explorer</p>
+            <p class="profile__subtitle"></p>
           </div>
           <button
             type="button"
@@ -155,6 +155,15 @@
         ></button>
         <img class="modal__image" alt="Preview" src="#" />
         <h5 class="modal__preview-title"></h5>
+      </div>
+    </div>
+    <div class="modal" id="delete-modal">
+      <div class="modal__container modal__container_confirm">
+        <button class="modal__close"></button>
+        <form class="modal__form">
+          <p class="modal__heading">Are you sure?</p>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
       </div>
     </div>
     <template id="card-template">
